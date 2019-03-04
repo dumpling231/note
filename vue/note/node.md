@@ -15,6 +15,7 @@ flow init
 
 3.开始写代码
 index.js
+```
 // @flow
 var str: number = 'hello world!';
 console.log(str);
