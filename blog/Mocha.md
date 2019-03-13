@@ -88,3 +88,40 @@ $ mocha test/unit/*.js
 
 `$ mocha 'test/**/*.@(js|jsx)'`
 上面代码指定运行test目录下面任何子目录中、文件后缀名为js或jsx的测试脚本。注意，Node的通配符要放在单引号之中，否则星号（*）会先被Shell解释。
+
+
+#### ES6测试
+ES6转码，需要安装Babel。
+npm install babel-core babel-preset-es2015 --save-dev
+
+#### 异步测试
+Mocha默认每个测试用例最多执行2000毫秒，如果到时没有得到结果，就报错。对于涉及异步操作的测试用例，这个时间往往是不够的，需要用-t或--timeout参数指定超时门槛。
+
+
+#### 测试用例的钩子
+Mocha在describe块之中，提供测试用例的四个钩子：before()、after()、beforeEach()和afterEach()。它们会在指定时间执行。
+
+describe('hooks', function() {
+
+  before(function() {
+    // 在本区块的所有测试用例之前执行
+  });
+
+  after(function() {
+    // 在本区块的所有测试用例之后执行
+  });
+
+  beforeEach(function() {
+    // 在本区块的每个测试用例之前执行
+  });
+
+  afterEach(function() {
+    // 在本区块的每个测试用例之后执行
+  });
+
+  // test cases
+});
+
+#### 测试用例管理
+大型项目有很多测试用例。有时，我们希望只运行其中的几个，这时可以用only方法。describe块和it块都允许调用only方法，表示只运行某个测试套件或测试用例。
+还有skip方法，表示跳过指定的测试套件或测试用例。
