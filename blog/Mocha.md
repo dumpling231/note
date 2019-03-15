@@ -1,4 +1,6 @@
-参考地址
+参考地址:
+http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html
+https://segmentfault.com/a/1190000011362879
 git clone https://github.com/ruanyf/mocha-demos.git
 npm install
 npm install --global mocha
